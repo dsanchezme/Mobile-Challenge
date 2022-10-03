@@ -6,13 +6,16 @@ import core.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class SearchScreen extends BaseMobileScreen {
 
-    private MobileElement searchInput = new MobileElement(By.Id, "com.imdb.mobile:id/search_src_text", "Search movie input");
-    private MobileElement firstMovieResult = new MobileElement(By.AndroidUISelector, "new UiSelector().resourceId(\"com.imdb.mobile:id/holder\").index(1)", "First movie result");
+    private final MobileElement searchInput = new MobileElement(By.Id, "com.imdb.mobile:id/search_src_text", "Search movie input");
+    private final MobileElement firstMovieResult = new MobileElement(By.AndroidUISelector, "new UiSelector().resourceId(\"com.imdb.mobile:id/holder\").index(1)", "First movie result");
+
+    @AndroidFindBy(uiAutomator = "new UiSelector().resourceId(\"com.imdb.mobile:id/holder\")")
+    private List<AndroidElement> movieResults;
 
     public SearchScreen() {
         super();
@@ -23,7 +26,12 @@ public class SearchScreen extends BaseMobileScreen {
     }
 
     public void selectFirstSearchResult(){
-        findMobileElement(firstMovieResult).click();
+        movieResults.get(0).click();
+    }
+
+    public void selectAnyMovieResult(){
+        int selection = new Random().nextInt(movieResults.size());
+        movieResults.get(selection).click();
     }
 
 

@@ -6,7 +6,8 @@ import core.MobileElement;
 
 public class YouScreen extends BaseMobileScreen {
 
-    private MobileElement signInButton = new MobileElement(By.Id, "com.imdb.mobile:id/sign_in_button", "Got to login screen button");
+    private final MobileElement signInButton = new MobileElement(By.Id, "com.imdb.mobile:id/sign_in_button", "Got to login screen button");
+    private final MobileElement fullWatchListButton = new MobileElement(By.Id, "com.imdb.mobile:id/see_all", "Button to display all movies added to watch list");
 
     public YouScreen() {
         super();
@@ -14,5 +15,9 @@ public class YouScreen extends BaseMobileScreen {
 
     public void goToLoginScreen(){
         findMobileElement(signInButton).click();
+    }
+
+    public void seeFullWatchList(){
+        findMobileElement(fullWatchListButton).click();
     }
 }

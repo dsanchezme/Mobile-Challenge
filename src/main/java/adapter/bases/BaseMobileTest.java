@@ -1,9 +1,6 @@
 package adapter.bases;
 
-import adapter.screens.LoginScreen;
-import adapter.screens.MovieScreen;
-import adapter.screens.NavigationBar;
-import adapter.screens.SearchScreen;
+import adapter.screens.*;
 import core.ConfigCapabilities;
 import core.MobileAppDriver;
 import io.appium.java_client.android.AndroidDriver;
@@ -16,17 +13,23 @@ public class BaseMobileTest {
     private AndroidDriver<AndroidElement> driver;
 
     public NavigationBar navigationBar;
-    public LoginScreen loginScreen;
+    public GeneralLoginScreen generalLoginScreen;
     public SearchScreen searchScreen;
     public MovieScreen movieScreen;
+    public IMDbLoginScreen iMDbLoginScreen;
+    public YouScreen youScreen;
+    public WatchListScreen watchListScreen;
 
     @BeforeSuite(alwaysRun = true)
     public void setUp(){
         driver = MobileAppDriver.getMoviesAppDriver(ConfigCapabilities.getCapabilities());
         navigationBar = new NavigationBar();
-        loginScreen = new LoginScreen();
+        generalLoginScreen = new GeneralLoginScreen();
         searchScreen = new SearchScreen();
         movieScreen = new MovieScreen();
+        iMDbLoginScreen = new IMDbLoginScreen();
+        youScreen = new YouScreen();
+        watchListScreen = new WatchListScreen();
     }
 
     @AfterSuite(alwaysRun = true)

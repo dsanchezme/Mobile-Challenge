@@ -6,10 +6,10 @@ import core.MobileElement;
 
 public class NavigationBar extends BaseMobileScreen {
 
-    private MobileElement homeButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_home", "Home button");
-    private MobileElement searchButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_search_browse", "Search button");
-    private MobileElement videoButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_video", "Video button");
-    private MobileElement youButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_you", "Account button");
+    private final MobileElement homeButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_home", "Home button");
+    private final MobileElement searchButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_search_browse", "Search button");
+    private final MobileElement videoButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_video", "Video button");
+    private final MobileElement youButton = new MobileElement(By.Id, "com.imdb.mobile:id/navigation_you", "Account button");
 
     public NavigationBar(){
         super();
