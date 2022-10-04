@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import org.tinylog.Logger;
 
 public class NavigationBar extends BaseMobileScreen {
 
@@ -16,18 +17,22 @@ public class NavigationBar extends BaseMobileScreen {
     }
 
     public void goToHomeScreen(){
+        Logger.debug("Going to home screen...");
         findMobileElement(homeButton).click();
     }
 
     public void goToSearchScreen(){
+        Logger.debug("Going to search screen...");
         findMobileElement(searchButton).click();
     }
 
     public void goToVideoScreen(){
+        Logger.debug("Going to video screen...");
         findMobileElement(videoButton).click();
     }
 
     public void goToYouScreen(){
+        Logger.debug("Going to account screen...");
         findMobileElement(youButton).click();
     }
 }

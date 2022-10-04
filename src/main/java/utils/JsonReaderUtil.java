@@ -2,7 +2,7 @@ package utils;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.io.FileReader;
 

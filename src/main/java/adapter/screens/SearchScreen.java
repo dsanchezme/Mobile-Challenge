@@ -5,6 +5,7 @@ import core.By;
 import core.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import org.tinylog.Logger;
 
 import java.util.List;
 import java.util.Random;
@@ -22,15 +23,18 @@ public class SearchScreen extends BaseMobileScreen {
     }
 
     public void setMovieToSearch(String movie){
+        Logger.debug("Typing " + movie + " in the movie search bar...");
         findMobileElement(searchInput).click().clear().sendKeys(movie);
     }
 
     public void selectFirstSearchResult(){
+        Logger.debug("Selecting first result...");
         movieResults.get(0).click();
     }
 
     public void selectAnyMovieResult(){
         int selection = new Random().nextInt(movieResults.size());
+        Logger.debug("Selecting the result number " + selection);
         movieResults.get(selection).click();
     }
 

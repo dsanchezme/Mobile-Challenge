@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import org.tinylog.Logger;
 
 public class YouScreen extends BaseMobileScreen {
 
@@ -15,18 +16,22 @@ public class YouScreen extends BaseMobileScreen {
     }
 
     public void goToLoginScreen(){
+        Logger.debug("Going to login screen...");
         findMobileElement(signInButton).click();
     }
 
     public void seeFullWatchList(){
+        Logger.debug("Displaying all movies in watch list...");
         findMobileElement(fullWatchListButton).click();
     }
 
     public void goToSettings(){
+        Logger.debug("Going to account settings...");
         findMobileElement(settingsButton).click();
     }
 
     public String getSignInButtonText(){
+        Logger.debug("Getting text in sign in button");
         return findMobileElement(signInButton).getText();
     }
 }

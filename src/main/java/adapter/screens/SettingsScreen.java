@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import org.tinylog.Logger;
 
 public class SettingsScreen extends BaseMobileScreen {
 
@@ -13,6 +14,7 @@ public class SettingsScreen extends BaseMobileScreen {
     }
 
     public void signOut(){
+        Logger.debug("Logging out...");
         findMobileElement(signOutButton).click();
     }
 

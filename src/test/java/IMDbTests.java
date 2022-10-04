@@ -1,16 +1,13 @@
 import adapter.bases.BaseMobileTest;
-import core.MobileAppDriver;
-import core.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.tinylog.Logger;
 import utils.JsonReaderUtil;
 
 public class IMDbTests extends BaseMobileTest {
-
-    private static final String EXPECTATIONS_FILE_PATH = "src/main/resources/expectations.json";
-
     @Test
     public void matchOverviewFirstResult(){
+        Logger.info("Verifying movie overview after movie search");
         generalLoginScreen.skipSignIn();
         navigationBar.goToSearchScreen();
         String movieToSearch = JsonReaderUtil.getJsonDataProperty("movieTitle", EXPECTATIONS_FILE_PATH);
@@ -23,6 +20,7 @@ public class IMDbTests extends BaseMobileTest {
 
     @Test
     public void addMovieToWatchList(){
+        Logger.info("Verifying add movie to watch list functionality");
         generalLoginScreen.signInWithIMDB();
         iMDbLoginScreen.signIn();
         navigationBar.goToSearchScreen();
@@ -34,10 +32,13 @@ public class IMDbTests extends BaseMobileTest {
         navigationBar.goToYouScreen();
         youScreen.seeFullWatchList();
         Assert.assertTrue(watchListScreen.movieInWatchList(movieSelected));
+        watchListScreen.selectMovie(movieSelected);
+        movieScreen.removeFromWatchList();
     }
 
     @Test
     public void rateMovieTest(){
+        Logger.info("Verifying rate a movie functionality");
         generalLoginScreen.signInWithIMDB();
         iMDbLoginScreen.signIn();
         navigationBar.goToSearchScreen();
@@ -48,10 +49,14 @@ public class IMDbTests extends BaseMobileTest {
         rateMovieScreen.rateMovie(8);
         String expectedMessage = JsonReaderUtil.getJsonDataProperty("ratingSuccessMessage", EXPECTATIONS_FILE_PATH);
         Assert.assertEquals(movieScreen.getMessageAfterRating(), expectedMessage);
+        movieScreen.goToYourMovieRate();
+        rateMovieScreen.removeMovieRating();
     }
+
 
     @Test
     public void signOutTest(){
+        Logger.info("Verifying logout functionality");
         generalLoginScreen.signInWithIMDB();
         iMDbLoginScreen.signIn();
         navigationBar.goToYouScreen();

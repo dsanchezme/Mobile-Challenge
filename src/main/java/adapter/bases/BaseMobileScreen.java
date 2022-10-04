@@ -13,6 +13,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.tinylog.Logger;
 
 public class BaseMobileScreen {
 
@@ -70,6 +71,8 @@ public class BaseMobileScreen {
                 return false;
             });
         }catch (Exception e){
+            Logger.warn(mobileElement.elementDescription + " not found, causing the following exception: ");
+            Logger.warn(e);
             return false;
         }
     }

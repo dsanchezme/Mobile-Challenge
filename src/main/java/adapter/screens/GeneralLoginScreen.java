@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import org.tinylog.Logger;
 
 public class GeneralLoginScreen extends BaseMobileScreen {
 
@@ -14,10 +15,12 @@ public class GeneralLoginScreen extends BaseMobileScreen {
     }
 
     public void skipSignIn(){
+        Logger.debug("Skipping sign in...");
         findMobileElement(skipLoginButton).click();
     }
 
     public void signInWithIMDB(){
+        Logger.debug("Logging in with IMDb account...");
         findMobileElement(imdbLoginButton).click();
     }
 }
