@@ -20,6 +20,8 @@ public class BaseMobileTest {
     public YouScreen youScreen;
     public WatchListScreen watchListScreen;
     public RateMovieScreen rateMovieScreen;
+    public SettingsScreen settingsScreen;
+    public LocationPopUp locationPopUp;
 
     @BeforeTest(alwaysRun = true)
     public void setUp(){
@@ -32,6 +34,8 @@ public class BaseMobileTest {
         youScreen = new YouScreen();
         watchListScreen = new WatchListScreen();
         rateMovieScreen = new RateMovieScreen();
+        settingsScreen = new SettingsScreen();
+        locationPopUp = new LocationPopUp();
     }
 
     @AfterTest(alwaysRun = true)

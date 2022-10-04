@@ -50,4 +50,17 @@ public class IMDbTests extends BaseMobileTest {
         Assert.assertEquals(movieScreen.getMessageAfterRating(), expectedMessage);
     }
 
+    @Test
+    public void signOutTest(){
+        generalLoginScreen.signInWithIMDB();
+        iMDbLoginScreen.signIn();
+        navigationBar.goToYouScreen();
+        youScreen.goToSettings();
+        settingsScreen.signOut();
+        locationPopUp.dismissPopUpNotAllowing();
+        navigationBar.goToYouScreen();
+        String expectedButtonText = JsonReaderUtil.getJsonDataProperty("signInButtonText", EXPECTATIONS_FILE_PATH);
+        Assert.assertEquals(youScreen.getSignInButtonText(), expectedButtonText);
+    }
+
 }
