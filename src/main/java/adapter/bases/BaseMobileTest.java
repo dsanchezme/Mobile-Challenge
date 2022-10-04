@@ -26,7 +26,7 @@ public class BaseMobileTest {
     public LocationPopUp locationPopUp;
     public static final String EXPECTATIONS_FILE_PATH = "src/main/resources/expectations.json";
 
-    @BeforeTest(alwaysRun = true)
+    @BeforeMethod(alwaysRun = true)
     public void setUp(){
         Logger.debug("Starting test...");
         Logger.info("Setting up driver");
@@ -43,7 +43,7 @@ public class BaseMobileTest {
         locationPopUp = new LocationPopUp();
     }
 
-    @AfterTest(alwaysRun = true)
+    @AfterMethod(alwaysRun = true)
     public void tearDown(){
         if (driver != null){
             driver.quit();
