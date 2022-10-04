@@ -1,11 +1,11 @@
 import adapter.bases.BaseMobileTest;
 import core.MobileAppDriver;
+import core.MobileElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import utils.JsonReaderUtil;
-import utils.SystemVariablesUtil;
 
-public class SearchMovieTest extends BaseMobileTest {
+public class IMDbTests extends BaseMobileTest {
 
     private static final String EXPECTATIONS_FILE_PATH = "src/main/resources/expectations.json";
 
@@ -35,4 +35,19 @@ public class SearchMovieTest extends BaseMobileTest {
         youScreen.seeFullWatchList();
         Assert.assertTrue(watchListScreen.movieInWatchList(movieSelected));
     }
+
+    @Test
+    public void rateMovieTest(){
+        generalLoginScreen.signInWithIMDB();
+        iMDbLoginScreen.signIn();
+        navigationBar.goToSearchScreen();
+        String movieToSearch = JsonReaderUtil.getJsonDataProperty("movieTitle", EXPECTATIONS_FILE_PATH);
+        searchScreen.setMovieToSearch(movieToSearch);
+        searchScreen.selectFirstSearchResult();
+        movieScreen.goToRateMovie();
+        rateMovieScreen.rateMovie(8);
+        String expectedMessage = JsonReaderUtil.getJsonDataProperty("ratingSuccessMessage", EXPECTATIONS_FILE_PATH);
+        Assert.assertEquals(movieScreen.getMessageAfterRating(), expectedMessage);
+    }
+
 }
