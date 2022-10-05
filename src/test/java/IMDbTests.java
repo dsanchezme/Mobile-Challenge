@@ -1,9 +1,12 @@
 import adapter.bases.BaseMobileTest;
+import listeners.TestListener;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.tinylog.Logger;
 import utils.JsonReaderUtil;
 
+@Listeners({ TestListener.class })
 public class IMDbTests extends BaseMobileTest {
     @Test
     public void matchOverviewFirstResult(){

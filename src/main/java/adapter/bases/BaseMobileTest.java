@@ -52,4 +52,8 @@ public class BaseMobileTest {
         Logger.debug("Test finished.");
     }
 
+    public AndroidDriver<AndroidElement> getDriver(){
+        return driver;
+    }
+
 }
