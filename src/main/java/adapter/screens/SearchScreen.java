@@ -5,6 +5,7 @@ import core.By;
 import core.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.tinylog.Logger;
 
 import java.util.List;
@@ -22,16 +23,19 @@ public class SearchScreen extends BaseMobileScreen {
         super();
     }
 
+    @Step("Set movie to search")
     public void setMovieToSearch(String movie){
         Logger.debug("Typing " + movie + " in the movie search bar...");
         findMobileElement(searchInput).click().clear().sendKeys(movie);
     }
 
+    @Step("Select first search result")
     public void selectFirstSearchResult(){
         Logger.debug("Selecting first result...");
         movieResults.get(0).click();
     }
 
+    @Step("Select any search result")
     public void selectAnyMovieResult(){
         int selection = new Random().nextInt(movieResults.size());
         Logger.debug("Selecting the result number " + selection);

@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import io.qameta.allure.Step;
 import org.tinylog.Logger;
 import utils.SystemVariablesUtil;
 
@@ -17,6 +18,7 @@ public class IMDbLoginScreen extends BaseMobileScreen {
         super();
     }
 
+    @Step("Set credentials")
     private void setCredentials(String email, String password){
         Logger.debug("Setting IMDb credentials...");
         findMobileElement(emailInput).click().clear().sendKeys(email);

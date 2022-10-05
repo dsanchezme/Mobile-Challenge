@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import io.qameta.allure.Step;
 import org.tinylog.Logger;
 
 public class YouScreen extends BaseMobileScreen {
@@ -15,21 +16,19 @@ public class YouScreen extends BaseMobileScreen {
         super();
     }
 
-    public void goToLoginScreen(){
-        Logger.debug("Going to login screen...");
-        findMobileElement(signInButton).click();
-    }
-
+    @Step("See full watch list")
     public void seeFullWatchList(){
         Logger.debug("Displaying all movies in watch list...");
         findMobileElement(fullWatchListButton).click();
     }
 
+    @Step("Go to account settings")
     public void goToSettings(){
         Logger.debug("Going to account settings...");
         findMobileElement(settingsButton).click();
     }
 
+    @Step("Get sign in button text")
     public String getSignInButtonText(){
         Logger.debug("Getting text in sign in button");
         return findMobileElement(signInButton).getText();

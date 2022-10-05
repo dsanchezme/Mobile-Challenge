@@ -5,6 +5,7 @@ import core.By;
 import core.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.tinylog.Logger;
 
 import java.util.List;
@@ -21,6 +22,7 @@ public class RateMovieScreen extends BaseMobileScreen {
         super();
     }
 
+    @Step("Rate movie")
     public void rateMovie(int value){
         Logger.debug("Rating a movie with " + value + " stars...");
         if (value>0 && value<11){
@@ -29,6 +31,7 @@ public class RateMovieScreen extends BaseMobileScreen {
         findMobileElement(rateMovieButton).click();
     }
 
+    @Step("Remove movie rating")
     public void removeMovieRating(){
         Logger.debug("Removing your movie rate...");
         findMobileElement(removeRatingButton).click();

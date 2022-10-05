@@ -3,6 +3,7 @@ package adapter.screens;
 import adapter.bases.BaseMobileScreen;
 import core.By;
 import core.MobileElement;
+import io.qameta.allure.Step;
 import org.tinylog.Logger;
 
 public class GeneralLoginScreen extends BaseMobileScreen {
@@ -14,11 +15,13 @@ public class GeneralLoginScreen extends BaseMobileScreen {
         super();
     }
 
+    @Step("Skip sign in")
     public void skipSignIn(){
         Logger.debug("Skipping sign in...");
         findMobileElement(skipLoginButton).click();
     }
 
+    @Step("Sign in with IMDb")
     public void signInWithIMDB(){
         Logger.debug("Logging in with IMDb account...");
         findMobileElement(imdbLoginButton).click();

@@ -5,6 +5,7 @@ import core.By;
 import core.MobileElement;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.qameta.allure.Step;
 import org.tinylog.Logger;
 
 public class MovieScreen extends BaseMobileScreen {
@@ -23,25 +24,31 @@ public class MovieScreen extends BaseMobileScreen {
         super();
     }
 
+    @Step("Get movie overview")
     public String getMovieOverview(){
         Logger.debug("Getting movie overview...");
         return findMobileElement(movieOverview).getText();
     }
 
+    @Step("Add movie to watch list")
     public void addToWatchList(){
         Logger.debug("Adding movie to watch list...");
         findMobileElement(addToWatchListButton).click();
     }
+
+    @Step("Remove movie from watch list")
     public void removeFromWatchList(){
         Logger.debug("Removing movie from watch list...");
         findMobileElement(addToWatchListButton).click();
     }
 
+    @Step("Get movie title")
     public String getMovieTitle(){
         Logger.debug("Getting movie title...");
         return findMobileElement(movieTitle).getText();
     }
 
+    @Step("Go to rate movie")
     public void goToRateMovie(){
         Logger.debug("Going to rate movie screen...");
         rateMovieButton.click();
