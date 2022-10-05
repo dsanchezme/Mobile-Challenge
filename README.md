@@ -30,4 +30,34 @@ Testing IBMb application using Appium in the following scenarios:
    > And I click on *SIGN OUT*   
    > **Then** in the account view must be the button to *Sign in / Sign up*    
 
-   
+## Setup
+
+- Make sure you have correctly installed java (Java 11 is recommended).  
+   ```
+   java --version
+   ```
+- Make sure you have correctly installed maven (Maven 3.8.6 is recommended).
+   ```
+   mvn --version
+   ```
+- Make sure you have an android device (Physical or emulator) connected, listing the devices attached.  
+   ```
+      adb devices
+   ```
+- Copy the name of your device listed and change the `deviceName` property in the file `src/main/resources/capabilities.json` with your device name.
+- Install Appium (v1.15.1 recommended) and start a server with simple configuration at host `127.0.0.1` and port `4723`
+- Create an account in IMDb.
+- Set the credentials in the environment system variables as follows:
+   * `IMDB_EMAIL` for the email
+   * `IMDB_PASSWORD` for the password
+  
+## Run tests
+
+To execute the test cases run
+```
+mvn clean verify
+```
+
+## Reference
+
+- [Mobile Testing with Appium Challenge for Endava interns](https://github.com/andreaisabm/MobileWithAppiumChallenge)
